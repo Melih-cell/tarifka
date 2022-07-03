@@ -1,4 +1,3 @@
-import { StyleSheet } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 
@@ -6,8 +5,8 @@ const fetchHooks = (url) => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  async function fetchData() {
+  
+  const fetchData = async() => {
     try {
       const {data: response} = await axios.get(url);
       console.log(response);
@@ -18,18 +17,17 @@ const fetchHooks = (url) => {
       setError(error.message);
     }
   }
-
-  useEffect(() => {
+  
+  
+   useEffect(() => {
     fetchData(); 
   }, []);
-
+  
   return (
     {
         data, loading, error
     }
-    )
+  )
 }
 
 export default fetchHooks
-
-const styles = StyleSheet.create({})

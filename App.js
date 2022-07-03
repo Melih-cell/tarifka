@@ -1,4 +1,3 @@
-import { StyleSheet } from 'react-native'
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -13,14 +12,22 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="ProductsPage" component={Product}></Stack.Screen>
-        <Stack.Screen name="DetailPage" component={Detail}></Stack.Screen>
+      <Stack.Navigator>
+        <Stack.Screen options={{
+          title: 'Shop',
+          headerStyle: {backgroundColor: '#9ee7ff'},
+          headerTitleStyle:{color: '#5e51f5'}
+         }}
+          name="ProductsPage" component={Product}></Stack.Screen>
+        <Stack.Screen options={{
+          title: 'Shop',
+          headerStyle: {backgroundColor: '#9ee7ff'},
+          headerTitleStyle:{color: '#5e51f5'}
+         }}
+         name="DetailPage" component={Detail}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   )
 }
 
 export default App
-
-const styles = StyleSheet.create({})

@@ -1,25 +1,29 @@
-import { StyleSheet, Text, View, FlatList, ActivityIndicator } from 'react-native'
+import { StyleSheet, Text, View, FlatList } from 'react-native'
 import React from 'react'
 import Config from '../../../config'
 import ProductCard from '../../components/ProductCard/ProductCard';
 import fetchHooks from '../../hooks/fetchHooks';
+import Loading from '../../loading';
+import Error from '../../error/Error';
 
-const Product = () => {
+const Product = ({ navigation }) => {
   
   const { data, loading, error} = fetchHooks(Config.API_URL);
 
- 
+  function handleSelect (id) {
+      navigation.navigate('DetailPage', {id})   
+  }
 
   function renderProduct({item}) {
-    return <ProductCard product={item}/>
+    return <ProductCard product={item} onSelect={() => handleSelect(item.id)} />
   }
 
   if(loading) {
-    return  <ActivityIndicator size="large"/>
+    return  <Loading />
   }
 
   if(error) {
-    return <Text>{error}</Text>
+    return <Error />
   }
   
   return (
@@ -30,5 +34,3 @@ const Product = () => {
 }
 
 export default Product
-
-const styles = StyleSheet.create({})
