@@ -5,3 +5,7 @@ fetch(`${API_URL}/users`, {
     'Authorization': `Bearer ${API_TOKEN}`
   }
 })
+
+export default {
+    API_URL
+}
