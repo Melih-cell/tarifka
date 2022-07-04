@@ -1,33 +1,25 @@
-import React from 'react'
+// In App.js in a new project
+
+import * as React from 'react';
+import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Product from './src/pages/Product/Product'
-import Detail from './src/pages/Detail/Detail';
-
+import MenuList from './src/Components/pages/MenuList';
+import Detail from './src/Components/pages/detail/Detail';
+import Meals from './src/Components/pages/meals/Meals';
 
 const Stack = createNativeStackNavigator();
 
-const App = () => {
-
-
+function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen options={{
-          title: 'Shop',
-          headerStyle: {backgroundColor: '#9ee7ff'},
-          headerTitleStyle:{color: '#5e51f5'}
-         }}
-          name="ProductsPage" component={Product}></Stack.Screen>
-        <Stack.Screen options={{
-          title: 'Shop',
-          headerStyle: {backgroundColor: '#9ee7ff'},
-          headerTitleStyle:{color: '#5e51f5'}
-         }}
-         name="DetailPage" component={Detail}></Stack.Screen>
+      <Stack.Navigator screenOptions={{headerTitleStyle: {color: '#ffa719' }}}>
+        <Stack.Screen name="MenuList" component={MenuList} />
+        <Stack.Screen name="Meals" component={Meals} />
+        <Stack.Screen name="Detail" component={Detail} />
       </Stack.Navigator>
     </NavigationContainer>
-  )
+  );
 }
 
-export default App
+export default App;

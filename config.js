@@ -1,11 +1,8 @@
-import {API_URL, API_TOKEN} from "@env"
-
-fetch(`${API_URL}/users`, {
-  headers: {
-    'Authorization': `Bearer ${API_TOKEN}`
-  }
-})
+import { API_CATEGORI, API_FOODS, FOOD_DETAIL } from '@env'
 
 export default {
-    API_URL
+    API_CATEGORI,
+    API_FOODS,
+    FOOD_DETAIL
+
 }
